@@ -6,8 +6,8 @@ class AppTextStyles {
   AppTextStyles._();
 
   // Font families
-  static const String primaryFontFamily = 'Cairo'; // Good for Arabic
-  static const String englishFontFamily = 'Roboto'; // Good for English
+  static const String primaryFontFamily = 'Manrope'; // Primary font for the app
+  static const String englishFontFamily = 'Manrope'; // Same for consistency
 
   // Display styles (largest text)
   static const TextStyle displayLarge = TextStyle(

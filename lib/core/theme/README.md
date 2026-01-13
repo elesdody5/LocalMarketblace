@@ -4,7 +4,7 @@ This document describes the theming system for the Local Marketplace application
 
 ## Overview
 
-The app uses a comprehensive theming system with support for both light and dark modes, Arabic typography (using Cairo font via Google Fonts), and colors optimized for the Saudi Arabian market.
+The app uses a comprehensive theming system with support for both light and dark modes, using Manrope font via Google Fonts, and a professional blue color scheme.
 
 ## Structure
 
@@ -13,19 +13,22 @@ The theme configuration is located in `lib/core/theme/` and consists of three ma
 ### 1. `app_colors.dart`
 Defines all color constants used throughout the app:
 
-- **Primary Colors**: Green tones reflecting Saudi culture and trust
-  - `primaryGreen`: #006B3F
-  - `primaryGreenLight`: #00A859
-  - `primaryGreenDark`: #004D2E
+- **Primary Colors**: Blue tones for professional marketplace
+  - `primaryGreen`: #0c5678
+  - `primaryGreenLight`: #eef6f9 (light background)
+  - `primaryGreenDark`: #08415c (hover state)
 
-- **Secondary Colors**: Gold/Amber tones reflecting Saudi heritage
+- **Secondary Colors**: Gold/Amber tones (maintained for compatibility)
   - `secondaryGold`: #D4AF37
   - `secondaryGoldLight`: #FFD700
   - `secondaryGoldDark`: #B8941D
 
+- **Neutral Colors**: 
+  - Light theme: #f3f4f6 (background), #ffffff (surface), #1f2937 (text), #6b7280 (subtext)
+  - Dark theme: #111827 (background), #1f2937 (surface), #f9fafb (text), #9ca3af (subtext)
+
 - **Status Colors**: For success, error, warning, and info states
 - **Category Colors**: For different product categories
-- **Neutral Colors**: Separate sets for light and dark themes
 
 ### 2. `app_text_styles.dart`
 Defines typography styles following Material Design 3 guidelines:
@@ -37,13 +40,14 @@ Defines typography styles following Material Design 3 guidelines:
 - Label styles
 - Custom price styles (specific to marketplace needs)
 
-All text styles are designed to work well with both Arabic and English text.
+All text styles use Manrope font for clean, modern typography.
 
 ### 3. `app_theme.dart`
 Main theme configuration that combines colors and text styles:
 
 - Provides `lightTheme` and `darkTheme` static getters
-- Uses Google Fonts (Cairo) for Arabic support
+- Uses Google Fonts (Manrope) for clean typography
+- Default border radius: 12px (0.75rem)
 - Configures all Material Design components:
   - AppBar
   - Cards
@@ -117,17 +121,18 @@ themeMode.value = ThemeMode.dark; // or ThemeMode.light
 ## Design Decisions
 
 ### Color Choices
-- **Green**: Chosen as the primary color to reflect trust, growth, and Saudi cultural preferences
-- **Gold**: Secondary color reflecting Saudi heritage and premium quality
+- **Blue (#0c5678)**: Chosen as the primary color for professional, trustworthy appearance
+- **Gold**: Secondary color maintained for premium quality and accents
 - **High Contrast**: Text colors ensure WCAG AA compliance for accessibility
+- **Light Backgrounds**: #eef6f9 and #f3f4f6 for subtle, modern interface
 
 ### Typography
-- **Cairo Font**: Chosen for excellent Arabic text rendering and readability
+- **Manrope Font**: Chosen for clean, modern typography with excellent readability
 - **Material Design 3**: Following the latest design guidelines for consistency
 - **Scalable**: Font sizes follow a modular scale for visual hierarchy
 
 ### Component Styling
-- **Rounded Corners**: 8-12px border radius for modern, friendly appearance
+- **Rounded Corners**: 12px (0.75rem) default border radius for modern appearance
 - **Elevation**: Conservative use of shadows for depth without overwhelming
 - **Spacing**: Consistent padding and margins following 8px grid system
 

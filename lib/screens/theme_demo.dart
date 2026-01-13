@@ -132,7 +132,7 @@ class ThemeDemo extends StatelessWidget {
       height: 60,
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Center(
         child: Text(

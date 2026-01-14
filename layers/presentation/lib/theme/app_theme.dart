@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
 import 'app_colors.dart';
 import 'app_text_styles.dart';
 
@@ -80,6 +81,8 @@ class AppTheme {
       useMaterial3: true,
       brightness: Brightness.light,
       fontFamily: 'Manrope',
+      scaffoldBackgroundColor: AppColors.backgroundLight,
+
       // Color scheme
       colorScheme: const ColorScheme.light(
         primary: AppColors.primaryColor,
@@ -94,8 +97,6 @@ class AppTheme {
         onError: Colors.white,
         surface: AppColors.surfaceLight,
         onSurface: AppColors.textPrimaryLight,
-        background: AppColors.backgroundLight,
-        onBackground: AppColors.textPrimaryLight,
       ),
 
       // Typography
@@ -112,9 +113,7 @@ class AppTheme {
         backgroundColor: AppColors.primaryColor,
         foregroundColor: Colors.white,
         systemOverlayStyle: SystemUiOverlayStyle.light,
-        titleTextStyle: AppTextStyles.titleLarge.copyWith(
-          color: Colors.white
-        ),
+        titleTextStyle: AppTextStyles.titleLarge.copyWith(color: Colors.white),
         iconTheme: const IconThemeData(color: Colors.white),
       ),
 
@@ -139,7 +138,8 @@ class AppTheme {
           ),
           backgroundColor: AppColors.primaryColor,
           foregroundColor: Colors.white,
-          textStyle: AppTextStyles.labelLarge.copyWith(fontWeight: FontWeight.w700),
+          textStyle:
+              AppTextStyles.labelLarge.copyWith(fontWeight: FontWeight.w700),
         ),
       ),
 
@@ -153,7 +153,8 @@ class AppTheme {
           side: const BorderSide(color: AppColors.primaryColor, width: 1.5),
           backgroundColor: AppColors.primaryColorLight,
           foregroundColor: AppColors.primaryColor,
-          textStyle: AppTextStyles.labelLarge.copyWith(fontWeight: FontWeight.w700),
+          textStyle:
+              AppTextStyles.labelLarge.copyWith(fontWeight: FontWeight.w700),
         ),
       ),
 
@@ -162,7 +163,8 @@ class AppTheme {
         style: TextButton.styleFrom(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           foregroundColor: AppColors.primaryColor,
-          textStyle: AppTextStyles.labelLarge.copyWith(fontWeight: FontWeight.w600),
+          textStyle:
+              AppTextStyles.labelLarge.copyWith(fontWeight: FontWeight.w600),
         ),
       ),
 
@@ -186,7 +188,8 @@ class AppTheme {
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: AppColors.error),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         labelStyle: AppTextStyles.bodyMedium.copyWith(
           color: AppColors.textSecondaryLight,
         ),
@@ -210,22 +213,20 @@ class AppTheme {
 
       // Divider theme
       dividerTheme: const DividerThemeData(
-        color: AppColors.dividerLight,
-        thickness: 1,
-        space: 1
-      ),
+          color: AppColors.dividerLight, thickness: 1, space: 1),
 
       // Icon theme
-      iconTheme: const IconThemeData(
-        color: AppColors.textPrimaryLight,
-        size: 24
-      ),
+      iconTheme:
+          const IconThemeData(color: AppColors.textPrimaryLight, size: 24),
 
       // Floating action button theme
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: AppColors.secondaryGold,
-        foregroundColor: Colors.black,
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: AppColors.primaryColor,
+        foregroundColor: Colors.white,
         elevation: 4,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
       ),
 
       // Bottom navigation bar theme
@@ -257,10 +258,8 @@ class AppTheme {
       // Snackbar theme
       snackBarTheme: SnackBarThemeData(
         backgroundColor: AppColors.textPrimaryLight,
-        contentTextStyle: AppTextStyles.bodyMedium.copyWith(
-          color: Colors.white
-          
-        ),
+        contentTextStyle:
+            AppTextStyles.bodyMedium.copyWith(color: Colors.white),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
@@ -275,6 +274,7 @@ class AppTheme {
       useMaterial3: true,
       brightness: Brightness.dark,
       fontFamily: 'Manrope',
+      scaffoldBackgroundColor: AppColors.backgroundDark,
 
       // Color scheme
       colorScheme: const ColorScheme.dark(
@@ -335,7 +335,8 @@ class AppTheme {
           ),
           backgroundColor: AppColors.primaryColor,
           foregroundColor: Colors.white,
-          textStyle: AppTextStyles.labelLarge.copyWith(fontWeight: FontWeight.w700),
+          textStyle:
+              AppTextStyles.labelLarge.copyWith(fontWeight: FontWeight.w700),
         ),
       ),
 
@@ -346,10 +347,12 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          side: const BorderSide(color: AppColors.primaryColorLight, width: 1.5),
+          side:
+              const BorderSide(color: AppColors.primaryColorLight, width: 1.5),
           backgroundColor: AppColors.primaryColor.withOpacity(0.2),
           foregroundColor: AppColors.primaryColorLight,
-          textStyle: AppTextStyles.labelLarge.copyWith(fontWeight: FontWeight.w700),
+          textStyle:
+              AppTextStyles.labelLarge.copyWith(fontWeight: FontWeight.w700),
         ),
       ),
 
@@ -358,7 +361,8 @@ class AppTheme {
         style: TextButton.styleFrom(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           foregroundColor: AppColors.primaryColorLight,
-          textStyle: AppTextStyles.labelLarge.copyWith(fontWeight: FontWeight.w600),
+          textStyle:
+              AppTextStyles.labelLarge.copyWith(fontWeight: FontWeight.w600),
         ),
       ),
 
@@ -376,13 +380,15 @@ class AppTheme {
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: const BorderSide(color: AppColors.primaryColorLight, width: 2),
+          borderSide:
+              const BorderSide(color: AppColors.primaryColorLight, width: 2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
           borderSide: const BorderSide(color: AppColors.error),
         ),
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         labelStyle: AppTextStyles.bodyMedium.copyWith(
           color: AppColors.textSecondaryDark,
         ),
@@ -406,22 +412,20 @@ class AppTheme {
 
       // Divider theme
       dividerTheme: const DividerThemeData(
-        color: AppColors.dividerDark,
-        thickness: 1,
-        space: 1
-      ),
+          color: AppColors.dividerDark, thickness: 1, space: 1),
 
       // Icon theme
-      iconTheme: const IconThemeData(
-        color: AppColors.textPrimaryDark,
-        size: 24
-      ),
+      iconTheme:
+          const IconThemeData(color: AppColors.textPrimaryDark, size: 24),
 
       // Floating action button theme
-      floatingActionButtonTheme: const FloatingActionButtonThemeData(
-        backgroundColor: AppColors.secondaryGoldLight,
-        foregroundColor: Colors.black,
+      floatingActionButtonTheme: FloatingActionButtonThemeData(
+        backgroundColor: AppColors.primaryColor,
+        foregroundColor: Colors.white,
         elevation: 4,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),
       ),
 
       // Bottom navigation bar theme

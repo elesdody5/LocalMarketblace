@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../theme/app_colors.dart';
-import '../theme/app_theme.dart';
+import 'package:presentation/theme/app_colors.dart';
+import 'package:presentation/theme/app_theme.dart';
 
 /// Demo screen showcasing the theme configuration
 /// This screen displays various styled components to verify theme implementation
@@ -47,160 +47,175 @@ class _ThemeDemoState extends State<ThemeDemo> {
             ),
           ],
         ),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          // Typography section
-          Text('Display Large', style: Theme.of(context).textTheme.displayLarge),
-          const SizedBox(height: 8),
-          Text('Headline Medium', style: Theme.of(context).textTheme.headlineMedium),
-          const SizedBox(height: 8),
-          Text('Title Large', style: Theme.of(context).textTheme.titleLarge),
-          const SizedBox(height: 8),
-          Text('Body Large', style: Theme.of(context).textTheme.bodyLarge),
-          const SizedBox(height: 8),
-          Text('Body Medium', style: Theme.of(context).textTheme.bodyMedium),
-          const SizedBox(height: 8),
-          Text('Label Small', style: Theme.of(context).textTheme.labelSmall),
-          const SizedBox(height: 24),
+        body: Builder(
+          builder: (context) {
+            return ListView(padding: const EdgeInsets.all(16), children: [
+              // Typography section
+              Text('Display Large',
+                  style: Theme.of(context).textTheme.displayLarge),
+              const SizedBox(height: 8),
+              Text('Headline Medium',
+                  style: Theme.of(context).textTheme.headlineMedium),
+              const SizedBox(height: 8),
+              Text('Title Large',
+                  style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 8),
+              Text('Body Large', style: Theme.of(context).textTheme.bodyLarge),
+              const SizedBox(height: 8),
+              Text('Body Medium',
+                  style: Theme.of(context).textTheme.bodyMedium),
+              const SizedBox(height: 8),
+              Text('Label Small',
+                  style: Theme.of(context).textTheme.labelSmall),
+              const SizedBox(height: 24),
 
-          // Buttons section
-          const Text('Buttons:', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 12),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Elevated Button'),
-          ),
-          const SizedBox(height: 8),
+              // Buttons section
+              Text('Buttons:', style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 12),
+              ElevatedButton(
+                onPressed: () {},
+                child: const Text('Elevated Button'),
+              ),
+              const SizedBox(height: 8),
 
-          // Simple outlined button
-          OutlinedButton(
-            onPressed: () {},
-            child: const Text('Outlined Button'),
-          ),
-          const SizedBox(height: 8),
+              // Simple outlined button
+              OutlinedButton(
+                onPressed: () {},
+                child: const Text('Outlined Button'),
+              ),
+              const SizedBox(height: 8),
 
-          // Text button
-          TextButton(
-            onPressed: () {},
-            child: const Text('Text Button'),
-          ),
-          const SizedBox(height: 24),
+              // Text button
+              TextButton(
+                onPressed: () {},
+                child: const Text('Text Button'),
+              ),
+              const SizedBox(height: 24),
 
-          // Card
-          Card(
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              // Card
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Card Component',
+                          style: Theme.of(context).textTheme.titleMedium),
+                      const SizedBox(height: 8),
+                      Text('This is a card with the themed styling.',
+                          style: Theme.of(context).textTheme.bodyMedium),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 24),
+
+              // Input field
+              const TextField(
+                decoration: InputDecoration(
+                  labelText: 'Input Field',
+                  hintText: 'Enter text here',
+                ),
+              ),
+              const SizedBox(height: 24),
+
+              // Chips
+              Text('Chips:', style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 12),
+              const Wrap(
+                spacing: 8,
                 children: [
-                  Text('Card Component',
-                      style: Theme.of(context).textTheme.titleMedium),
-                  const SizedBox(height: 8),
-                  Text('This is a card with the themed styling.',
-                      style: Theme.of(context).textTheme.bodyMedium),
+                  Chip(
+                      label: Text('Electronics'),
+                      backgroundColor: AppColors.categoryElectronics),
+                  Chip(
+                      label: Text('Fashion'),
+                      backgroundColor: AppColors.categoryFashion),
+                  Chip(
+                      label: Text('Vehicles'),
+                      backgroundColor: AppColors.categoryVehicles),
                 ],
               ),
-            ),
-          ),
-          const SizedBox(height: 24),
+              const SizedBox(height: 24),
 
-          // Input field
-          const TextField(
-            decoration: InputDecoration(
-              labelText: 'Input Field',
-              hintText: 'Enter text here',
-            ),
-          ),
-          const SizedBox(height: 24),
-
-          // Chips
-          const Text('Chips:', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 12),
-          Wrap(
-            spacing: 8,
-            children: [
-              Chip(label: const Text('Electronics'), backgroundColor: AppColors.categoryElectronics),
-              Chip(label: const Text('Fashion'), backgroundColor: AppColors.categoryFashion),
-              Chip(label: const Text('Vehicles'), backgroundColor: AppColors.categoryVehicles),
-            ],
-          ),
-          const SizedBox(height: 24),
-
-          // Colors section
-          const Text('Color Palette:', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 12),
-          Row(
-            children: [
-              Expanded(child: _colorBox('Primary', AppColors.primaryColor)),
-              const SizedBox(width: 8),
-              Expanded(child: _colorBox('Secondary', AppColors.secondaryGold)),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Row(
-            children: [
-              Expanded(child: _colorBox('Success', AppColors.success)),
-              const SizedBox(width: 8),
-              Expanded(child: _colorBox('Error', AppColors.error)),
-            ],
-          ),
-          const SizedBox(height: 8),
-          Row(
-            children: [
-              Expanded(child: _colorBox('Warning', AppColors.warning)),
-              const SizedBox(width: 8),
-              Expanded(child: _colorBox('Verified', AppColors.verified)),
-            ],
-          ),
-          const SizedBox(height: 24),
-
-          // Bottom Action Bar (from HTML)
-          const Text('Action Bar (HTML Layout):', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          const SizedBox(height: 12),
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Theme.of(context).brightness == Brightness.light
-                  ? AppColors.surfaceLight
-                  : AppColors.surfaceDark,
-              border: Border(
-                top: BorderSide(
-                  color: Theme.of(context).brightness == Brightness.light
-                      ? AppColors.dividerLight
-                      : AppColors.dividerDark,
-                ),
+              // Colors section
+              Text('Color Palette:',
+                  style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 12),
+              Row(
+                children: [
+                  Expanded(child: _colorBox('Primary', AppColors.primaryColor)),
+                  const SizedBox(width: 8),
+                  Expanded(
+                      child: _colorBox('Secondary', AppColors.secondaryGold)),
+                ],
               ),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 1,
-                  child: OutlinedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.call),
-                    label: const Text('Call'),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(child: _colorBox('Success', AppColors.success)),
+                  const SizedBox(width: 8),
+                  Expanded(child: _colorBox('Error', AppColors.error)),
+                ],
+              ),
+              const SizedBox(height: 8),
+              Row(
+                children: [
+                  Expanded(child: _colorBox('Warning', AppColors.warning)),
+                  const SizedBox(width: 8),
+                  Expanded(child: _colorBox('Verified', AppColors.verified)),
+                ],
+              ),
+              const SizedBox(height: 24),
+
+              // Bottom Action Bar (from HTML)
+              Text('Action Bar (HTML Layout):',
+                  style: Theme.of(context).textTheme.titleLarge),
+              const SizedBox(height: 12),
+              Container(
+                padding: const EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).brightness == Brightness.light
+                      ? AppColors.surfaceLight
+                      : AppColors.surfaceDark,
+                  border: Border(
+                    top: BorderSide(
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? AppColors.dividerLight
+                          : AppColors.dividerDark,
+                    ),
                   ),
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                const SizedBox(width: 12),
-                Expanded(
-                  flex: 2,
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: const Icon(Icons.chat_bubble),
-                    label: const Text('Chat with Seller'),
-                  ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: OutlinedButton.icon(
+                        onPressed: () {},
+                        icon: const Icon(Icons.call),
+                        label: const Text('Call'),
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      flex: 2,
+                      child: ElevatedButton.icon(
+                        onPressed: () {},
+                        icon: const Icon(Icons.chat_bubble),
+                        label: const Text('Chat with Seller'),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-        ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: const Icon(Icons.add),
-      ),
+              )
+            ]);
+          },
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          child: const Icon(Icons.add),
+        ),
       ),
     );
   }
@@ -208,8 +223,9 @@ class _ThemeDemoState extends State<ThemeDemo> {
   Widget _colorBox(String label, Color color) {
     // Calculate contrasting text color based on background brightness
     final brightness = ThemeData.estimateBrightnessForColor(color);
-    final textColor = brightness == Brightness.dark ? Colors.white : Colors.black;
-    
+    final textColor =
+        brightness == Brightness.dark ? Colors.white : Colors.black;
+
     return Container(
       height: 60,
       decoration: BoxDecoration(

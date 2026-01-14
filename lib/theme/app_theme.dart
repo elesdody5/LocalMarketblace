@@ -39,7 +39,7 @@ class AppTheme {
       brightness: Brightness.light,
       
       // Color scheme
-      colorScheme: ColorScheme.light(
+      colorScheme: const ColorScheme.light(
         primary: AppColors.primaryColor,
         onPrimary: Colors.white,
         primaryContainer: AppColors.primaryColorLight,
@@ -157,7 +157,9 @@ class AppTheme {
       chipTheme: ChipThemeData(
         backgroundColor: AppColors.surfaceLight,
         selectedColor: AppColors.primaryColorLight,
-        labelStyle: AppTextStyles.labelMedium,
+        labelStyle: AppTextStyles.labelMedium.copyWith(
+          color: AppColors.textPrimaryLight,
+        ),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
@@ -185,7 +187,7 @@ class AppTheme {
       ),
 
       // Bottom navigation bar theme
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         backgroundColor: AppColors.surfaceLight,
         selectedItemColor: AppColors.primaryColor,
         unselectedItemColor: AppColors.textSecondaryLight,
@@ -232,7 +234,7 @@ class AppTheme {
       brightness: Brightness.dark,
       
       // Color scheme
-      colorScheme: ColorScheme.dark(
+      colorScheme: const ColorScheme.dark(
         primary: AppColors.primaryColorLight,
         onPrimary: Colors.black,
         primaryContainer: AppColors.primaryColorDark,
@@ -266,7 +268,7 @@ class AppTheme {
         titleTextStyle: AppTextStyles.titleLarge.copyWith(
           color: AppColors.textPrimaryDark,
         ),
-        iconTheme: const IconThemeData(color: AppColors.textPrimaryDark),
+        iconTheme: IconThemeData(color: AppColors.textPrimaryDark),
       ),
 
       // Card theme
@@ -350,7 +352,9 @@ class AppTheme {
       chipTheme: ChipThemeData(
         backgroundColor: AppColors.surfaceDark,
         selectedColor: AppColors.primaryColorDark,
-        labelStyle: AppTextStyles.labelMedium,
+        labelStyle: AppTextStyles.labelMedium.copyWith(
+          color: AppColors.textPrimaryDark,
+        ),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),

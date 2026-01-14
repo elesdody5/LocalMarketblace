@@ -1,17 +1,52 @@
 import 'package:flutter/material.dart';
-import '../core/theme/app_colors.dart';
+import '../theme/app_colors.dart';
+import '../theme/app_theme.dart';
 
 /// Demo screen showcasing the theme configuration
 /// This screen displays various styled components to verify theme implementation
-class ThemeDemo extends StatelessWidget {
+class ThemeDemo extends StatefulWidget {
   const ThemeDemo({super.key});
 
   @override
+  State<ThemeDemo> createState() => _ThemeDemoState();
+}
+
+class _ThemeDemoState extends State<ThemeDemo> {
+  bool isDarkMode = false;
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Theme Demo'),
-      ),
+    return Theme(
+      data: isDarkMode ? AppTheme.darkTheme : AppTheme.lightTheme,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Theme Demo'),
+          actions: [
+            // Theme switch
+            Padding(
+              padding: const EdgeInsets.only(right: 8.0),
+              child: Row(
+                children: [
+                  Icon(
+                    isDarkMode ? Icons.dark_mode : Icons.light_mode,
+                    size: 20,
+                  ),
+                  const SizedBox(width: 8),
+                  Switch(
+                    value: isDarkMode,
+                    onChanged: (value) {
+                      setState(() {
+                        isDarkMode = value;
+                      });
+                    },
+                    activeTrackColor: AppColors.primaryColor,
+                    activeThumbColor: AppColors.primaryColorLight,
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -165,6 +200,7 @@ class ThemeDemo extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
         child: const Icon(Icons.add),
+      ),
       ),
     );
   }

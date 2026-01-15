@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import '../../theme/app_colors.dart';
+import 'package:get/get.dart';
+import 'package:presentation/routes/routes.dart';
+import '../theme/app_colors.dart';
+import '../welcome/welcome_screen.dart';
 import 'widgets/onboarding_skip_button.dart';
 import 'widgets/onboarding_page_indicator.dart';
 import 'widgets/onboarding_action_button.dart';
@@ -62,10 +65,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   void _skipOnboarding() {
-    // TODO: Navigate to main app screen or save onboarding completion state
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Onboarding completed!')),
-    );
+    Get.offNamed(welcomeRouteName);
   }
 
   @override

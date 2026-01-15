@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:presentation/onboarding/onboarding_screen.dart';
+import 'package:local_market_place/pages/app_pages.dart';
+import 'package:presentation/routes/routes.dart';
 import 'package:presentation/theme/app_theme.dart';
 
 import 'localization/messages.dart';
@@ -16,14 +17,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        title: 'Local Marketblace',
-        theme: AppTheme.lightTheme,
-        darkTheme: AppTheme.darkTheme,
-        themeMode: ThemeMode.system,
-        translations: Messages(),
-        locale: const Locale("en"),
-        fallbackLocale: const Locale('en'),
-        home: const OnboardingScreen());
+      title: 'Local Marketblace',
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
+      translations: Messages(),
+      locale: const Locale("en"),
+      fallbackLocale: const Locale('en'),
+      getPages: appPages,
+      initialRoute: onBoardingRouteName,
+    );
   }
 }
 

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_it/get_it.dart';
 import 'package:presentation/routes/routes.dart';
+import 'package:presentation/welcome/language_controller.dart';
 
 import '../theme/app_colors.dart';
 import '../theme/app_text_styles.dart';
@@ -14,6 +16,7 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(GetIt.I<LanguageController>());
     // ✅ Cache theme values at build start
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;

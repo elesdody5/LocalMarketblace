@@ -3,12 +3,12 @@ import 'package:domain/user_preferences/user_preferences_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @injectable
-class UpdateUserPreferencesUseCase {
+class GetUserPreferencesUseCase {
   final UserPreferencesRepository _repository;
 
-  UpdateUserPreferencesUseCase(this._repository);
+  GetUserPreferencesUseCase(this._repository);
 
-  Future<void> call(UserPreferences preferences) {
-    return _repository.updateUserPreferences(preferences);
+  UserPreferences? call() {
+    return _repository.getUserPreferences();
   }
 }

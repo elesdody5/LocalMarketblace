@@ -6,14 +6,16 @@ extension UserPreferencesExtension on UserPreferences {
       'darkMode': darkMode,
       'language': language,
       'notificationsEnabled': notificationsEnabled,
+      'firstLaunch': firstLaunch,
     };
   }
 
   static UserPreferences fromJson(Map<String, dynamic> json) {
     return UserPreferences(
-      darkMode: json['darkMode'] as bool,
-      language: json['language'] as String,
-      notificationsEnabled: json['notificationsEnabled'] as bool,
+      darkMode: json['darkMode'] as bool?,
+      language: json['language'] as String?,
+      notificationsEnabled: json['notificationsEnabled'] as bool?,
+      firstLaunch: json['firstLaunch'] as bool? ?? true,
     );
   }
 }

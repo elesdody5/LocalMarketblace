@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:presentation/welcome/language_controller.dart';
 
 import '../../theme/app_colors.dart';
 import '../../theme/app_text_styles.dart';
 
-/// Language toggle widget using LocaleController
+/// Language toggle widget using LanguageController
 class LanguageToggle extends StatelessWidget {
   const LanguageToggle({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Get LocaleController - will be initialized in main.dart
+    final languageController = Get.find<LanguageController>();
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Container(
@@ -23,23 +24,23 @@ class LanguageToggle extends StatelessWidget {
         ),
       ),
       padding: const EdgeInsets.all(2),
-      child: Row(
+      child: Obx(() => Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           _LanguageButton(
             label: 'EN',
-            isActive: true,
-            onPressed: () => Get.updateLocale(const Locale("en")),
+            isActive: languageController.isLanguageActive('en'),
+            onPressed: () => languageController.updateLanguage('en'),
             isDark: isDark,
           ),
           _LanguageButton(
             label: 'AR',
-            isActive: false,
-            onPressed: () => Get.updateLocale(const Locale("ar")),
+            isActive: languageController.isLanguageActive('ar'),
+            onPressed: () => languageController.updateLanguage('ar'),
             isDark: isDark,
           ),
         ],
-      ),
+      )),
     );
   }
 }

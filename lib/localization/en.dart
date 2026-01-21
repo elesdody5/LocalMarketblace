@@ -72,7 +72,10 @@ Map<String, String> enJson = {
   'error_confirm_password_required': 'Please confirm your password',
   'error_passwords_dont_match': 'Passwords do not match',
   'error_email_or_phone_required': 'Please enter your email or phone number',
+
+  // Language Controller
+  'language_updated': 'Language Updated',
+  'language_updated_message': 'App language has been updated successfully',
+  'error': 'Error',
+  'failed_to_update_language': 'Failed to update language',
 };
-
-
-

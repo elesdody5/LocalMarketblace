@@ -40,7 +40,8 @@ class VerificationScreen extends StatelessWidget {
       builder: (controller) {
         return Scaffold(
           backgroundColor: colorScheme.surface,
-          bottomNavigationBar: BottomEmailSection(
+          bottomNavigationBar: VerificationTypeSwitcher(
+            controller: controller,
             surfaceTranslucent: surfaceTranslucent,
             borderColor: borderColor,
             onSurfaceMuted: onSurfaceMuted,
@@ -85,7 +86,8 @@ class VerificationScreen extends StatelessWidget {
                             onSurfaceColor: colorScheme.onSurface,
                             onSurfaceMuted: onSurfaceMuted,
                             textTheme: textTheme,
-                            maskedPhoneNumber: controller.state.maskedPhoneNumber,
+                            maskedContact: controller.state.maskedContact,
+                            verificationType: controller.state.verificationType,
                             isDark: isDark,
                           ),
                           const SizedBox(height: 40),
@@ -93,7 +95,7 @@ class VerificationScreen extends StatelessWidget {
                           // Code Input Form
                           CodeInputForm(
                             formKey: _formKey,
-                            controller: controller,
+                            verificationAction: controller.verificationAction,
                             primaryColor: primaryColor,
                             isDark: isDark,
                             colorScheme: colorScheme,

@@ -19,14 +19,7 @@ extension VerificationStateHandler on VerificationScreen {
         ErrorSnackbar.showValidationError(message: value.message);
       } else if (value is ResendSuccessEvent) {
         HapticFeedback.lightImpact();
-        Get.snackbar(
-          'success'.tr,
-          'code_resent_success'.tr,
-          snackPosition: SnackPosition.BOTTOM,
-          backgroundColor: Get.theme.colorScheme.primary.withValues(alpha: 0.9),
-          colorText: Get.theme.colorScheme.onPrimary,
-          duration: const Duration(seconds: 2),
-        );
+        SuccessSnackbar.show(message: 'code_resent_success'.tr,);
       }
     });
   }

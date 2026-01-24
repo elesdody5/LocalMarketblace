@@ -33,18 +33,22 @@ class MockVerificationUseCase extends _i1.Mock
   }
 
   @override
-  _i3.Future<void> call(String? phoneNumber, String? code) =>
+  _i3.Future<void> call(
+    _i2.VerificationType? type,
+    String? contact,
+    String? code,
+  ) =>
       (super.noSuchMethod(
-            Invocation.method(#call, [phoneNumber, code]),
+            Invocation.method(#call, [type, contact, code]),
             returnValue: _i3.Future<void>.value(),
             returnValueForMissingStub: _i3.Future<void>.value(),
           )
           as _i3.Future<void>);
 
   @override
-  _i3.Future<void> resendCode(String? phoneNumber) =>
+  _i3.Future<void> resendCode(_i2.VerificationType? type, String? contact) =>
       (super.noSuchMethod(
-            Invocation.method(#resendCode, [phoneNumber]),
+            Invocation.method(#resendCode, [type, contact]),
             returnValue: _i3.Future<void>.value(),
             returnValueForMissingStub: _i3.Future<void>.value(),
           )

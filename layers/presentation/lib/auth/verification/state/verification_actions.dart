@@ -15,3 +15,6 @@ class UpdateResendCountdown extends VerificationAction {
 
   UpdateResendCountdown(this.countdown);
 }
+
+class SwitchVerificationType extends VerificationAction {}
+

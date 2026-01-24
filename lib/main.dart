@@ -5,6 +5,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:local_market_place/pages/app_pages.dart';
 import 'package:presentation/di/injection.dart';
+import 'package:presentation/routes/auth_routes.dart';
 import 'package:presentation/routes/routes.dart';
 import 'package:presentation/theme/app_theme.dart';
 import 'package:get_storage/get_storage.dart';
@@ -13,7 +14,7 @@ import 'localization/messages.dart';
 void main() async {
   // Preserve native splash screen
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   // Initialize dependencies
   await GetStorage.init();
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
       locale: const Locale("en"),
       fallbackLocale: const Locale('en'),
       getPages: appPages,
-      initialRoute: splashRouteName,
+      initialRoute: verificationRouteName,
     );
   }
 }

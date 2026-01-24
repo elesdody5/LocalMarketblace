@@ -1,15 +1,18 @@
+import 'package:domain/auth/usecase/verification_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:presentation/auth/verification/state/verification_state.dart';
 
 /// Header section for verification screen
-/// Displays SMS icon with hover effect, title, and subtitle with masked phone
+/// Displays SMS or Email icon with hover effect, title, and subtitle with masked contact
 class VerificationHeader extends StatefulWidget {
   final Color primaryColor;
   final Color primaryShadow;
   final Color onSurfaceColor;
   final Color onSurfaceMuted;
   final TextTheme textTheme;
-  final String maskedPhoneNumber;
+  final String maskedContact;
+  final VerificationType verificationType;
   final bool isDark;
 
   const VerificationHeader({
@@ -19,7 +22,8 @@ class VerificationHeader extends StatefulWidget {
     required this.onSurfaceColor,
     required this.onSurfaceMuted,
     required this.textTheme,
-    required this.maskedPhoneNumber,
+    required this.maskedContact,
+    required this.verificationType,
     required this.isDark,
   });
 
@@ -84,7 +88,9 @@ class _VerificationHeaderState extends State<VerificationHeader> {
                       ],
                     ),
                     child: Icon(
-                      Icons.sms,
+                      widget.verificationType == VerificationType.phone
+                          ? Icons.sms
+                          : Icons.mail_outline,
                       size: 40,
                       color: widget.primaryColor,
                     ),
@@ -107,7 +113,7 @@ class _VerificationHeaderState extends State<VerificationHeader> {
           ),
           const SizedBox(height: 12),
 
-          // Subtitle with masked phone number
+          // Subtitle with masked phone number or email
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
@@ -120,7 +126,7 @@ class _VerificationHeaderState extends State<VerificationHeader> {
                 TextSpan(text: 'verification_subtitle'.tr),
                 const TextSpan(text: ' '),
                 TextSpan(
-                  text: widget.maskedPhoneNumber,
+                  text: widget.maskedContact,
                   style: TextStyle(
                     color: widget.onSurfaceColor,
                     fontWeight: FontWeight.w700,

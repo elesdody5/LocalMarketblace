@@ -8,15 +8,14 @@ import 'package:presentation/auth/verification/state/verification_actions.dart';
 /// Provides 6-digit PIN input with custom styling
 class CodeInputForm extends StatelessWidget {
   final GlobalKey<FormBuilderState> formKey;
-  final VerificationController controller;
   final Color primaryColor;
   final bool isDark;
   final ColorScheme colorScheme;
-
+  final void Function(VerificationAction) verificationAction;
   const CodeInputForm({
     super.key,
     required this.formKey,
-    required this.controller,
+    required this.verificationAction,
     required this.primaryColor,
     required this.isDark,
     required this.colorScheme,
@@ -79,7 +78,7 @@ class CodeInputForm extends StatelessWidget {
       child: Center(
         child: Pinput(
           length: 6,
-          controller: TextEditingController(text: controller.state.code),
+          // controller: TextEditingController(text: controller.state.code),
           defaultPinTheme: defaultPinTheme,
           focusedPinTheme: focusedPinTheme,
           submittedPinTheme: submittedPinTheme,
@@ -94,10 +93,10 @@ class CodeInputForm extends StatelessWidget {
           animationCurve: Curves.easeInOut,
           animationDuration: const Duration(milliseconds: 200),
           onChanged: (value) {
-            controller.verificationAction(UpdateCode(value));
+            verificationAction(UpdateCode(value));
           },
           onCompleted: (value) {
-            controller.verificationAction(UpdateCode(value));
+            verificationAction(UpdateCode(value));
           },
         ),
       ),

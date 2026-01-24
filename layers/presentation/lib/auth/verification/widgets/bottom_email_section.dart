@@ -1,17 +1,23 @@
+import 'package:domain/auth/usecase/verification_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:presentation/auth/verification/verification_controller.dart';
+import 'package:presentation/auth/verification/state/verification_actions.dart';
+import 'package:presentation/auth/verification/state/verification_state.dart';
 
-/// Bottom section with email verification option
-/// Provides alternative verification method via email
-class BottomEmailSection extends StatelessWidget {
+/// Bottom section with verification type switcher
+/// Allows switching between phone and email verification
+class VerificationTypeSwitcher extends StatelessWidget {
+  final VerificationController controller;
   final Color surfaceTranslucent;
   final Color borderColor;
   final Color onSurfaceMuted;
   final Color primaryColor;
   final TextTheme textTheme;
 
-  const BottomEmailSection({
+  const VerificationTypeSwitcher({
     super.key,
+    required this.controller,
     required this.surfaceTranslucent,
     required this.borderColor,
     required this.onSurfaceMuted,
@@ -21,6 +27,15 @@ class BottomEmailSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isPhone = controller.state.verificationType == VerificationType.phone;
+    final hasAlternative = isPhone
+        ? controller.state.email.isNotEmpty
+        : controller.state.phoneNumber.isNotEmpty;
+
+    if (!hasAlternative) {
+      return const SizedBox.shrink();
+    }
+
     return Container(
       height: 50,
       padding: const EdgeInsets.symmetric(
@@ -38,19 +53,15 @@ class BottomEmailSection extends StatelessWidget {
       child: Center(
         child: TextButton.icon(
           onPressed: () {
-            Get.snackbar(
-              'Coming Soon',
-              'Email verification will be available soon',
-              snackPosition: SnackPosition.BOTTOM,
-            );
+            controller.verificationAction(SwitchVerificationType());
           },
           icon: Icon(
-            Icons.mail_outline,
+            isPhone ? Icons.mail_outline : Icons.sms,
             size: 20,
             color: onSurfaceMuted,
           ),
           label: Text(
-            'verify_via_email'.tr,
+            isPhone ? 'verify_via_email'.tr : 'verify_via_phone'.tr,
             style: textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.w600,
               color: onSurfaceMuted,

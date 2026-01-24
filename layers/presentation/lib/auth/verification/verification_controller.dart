@@ -1,11 +1,12 @@
 import 'dart:async';
 
+import 'package:domain/auth/usecase/verification_usecase.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:domain/auth/usecase/verification_usecase.dart';
 import 'package:injectable/injectable.dart';
 import 'package:presentation/auth/verification/state/verification_events.dart';
 import 'package:presentation/auth/verification/state/verification_state.dart';
+import 'package:presentation/routes/auth_routes.dart';
 
 import 'state/verification_actions.dart';
 
@@ -31,13 +32,25 @@ class VerificationController extends GetxController {
     update();
   }
 
+  /// Set email externally (useful for testing or programmatic initialization)
+  void setEmail(String email) {
+    _state = _state.copyWith(email: email);
+    update();
+  }
+
   @override
   void onInit() {
     super.onInit();
-    // Get phone number from route arguments with null check fallback
-    final phoneNumber = (Get.arguments as String?) ?? '';
+    // Get phone and email from route arguments with null check fallback
+    final args = Get.arguments as Map<String, dynamic>?;
+    final phoneNumber = args?[verificationPhoneArg] as String? ?? '';
+    final email = args?[verificationEmailArg] as String? ?? '';
+
     _state = _state.copyWith(
       phoneNumber: phoneNumber,
+      email: email,
+      verificationType: VerificationType.phone,
+      // Default to phone
       resendCountdown: resendCooldownSeconds,
       isResendEnabled: false,
     );
@@ -63,6 +76,9 @@ class VerificationController extends GetxController {
         break;
       case UpdateResendCountdown():
         _handleUpdateCountdown(action.countdown);
+        break;
+      case SwitchVerificationType():
+        _handleSwitchVerificationType();
         break;
     }
   }
@@ -91,6 +107,25 @@ class VerificationController extends GetxController {
     update();
   }
 
+  void _handleSwitchVerificationType() {
+    final newType = _state.verificationType == VerificationType.phone
+        ? VerificationType.email
+        : VerificationType.phone;
+
+    _state = _state.copyWith(
+      verificationType: newType,
+      code: '', // Clear code when switching
+      resendCountdown: resendCooldownSeconds,
+      isResendEnabled: false,
+    );
+    update();
+
+    // Restart timer
+    startResendTimer();
+
+    HapticFeedback.lightImpact();
+  }
+
   Future<void> _handleVerify() async {
     if (!_state.isCodeComplete) {
       event.value = VerificationErrorEvent('error_code_incomplete'.tr);
@@ -102,7 +137,11 @@ class VerificationController extends GetxController {
       _state = _state.copyWith(isLoading: true);
       update();
 
-      await verificationUseCase.call(_state.phoneNumber, _state.code);
+      await verificationUseCase.call(
+        _state.verificationType,
+        _state.currentContact,
+        _state.code,
+      );
 
       _state = _state.copyWith(isLoading: false);
       update();
@@ -122,7 +161,10 @@ class VerificationController extends GetxController {
     if (!_state.isResendEnabled) return;
 
     try {
-      await verificationUseCase.resendCode(_state.phoneNumber);
+      await verificationUseCase.resendCode(
+        _state.verificationType,
+        _state.currentContact,
+      );
 
       // Reset timer
       _state = _state.copyWith(

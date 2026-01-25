@@ -61,6 +61,15 @@ Map<String, String> enJson = {
   'dont_have_account': "Don't have an account?",
   'sign_up': 'Sign Up',
 
+  // Forgot Password Screen
+  'forgot_password_title': 'Forgot Password?',
+  'forgot_password_subtitle': "Don't worry! It happens. Please enter your registered phone number. We will send you a code via SMS to reset your password.",
+  'send_reset_code': 'Send Reset Code',
+  'need_more_help': 'Need more help?',
+  'contact_support': 'Contact Support',
+  'remember_password': 'Remember password?',
+  'verification_code_sent': 'Verification code sent successfully',
+
   // Validation Messages
   'error_full_name_required': 'Please enter your full name',
   'error_email_required': 'Please enter your email',

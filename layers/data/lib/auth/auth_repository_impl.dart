@@ -15,5 +15,14 @@ class AuthRepositoryImpl implements AuthRepository{
     // TODO: implement signup
     throw UnimplementedError();
   }
-  
+
+  @override
+  Future<void> requestPasswordReset(String phone) async {
+    // TODO: implement requestPasswordReset
+    // Simulate API call
+    await Future.delayed(const Duration(seconds: 2));
+    // For now, just return successfully
+    return;
+  }
+
 }

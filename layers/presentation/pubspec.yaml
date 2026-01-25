@@ -41,6 +41,9 @@ dependencies:
   get_it: ^9.2.0
   injectable: ^2.7.1+4
   pinput: ^6.0.1
+  intl: ^0.20.2
+  connectivity_plus: ^7.0.0
+
 
 dev_dependencies:
   flutter_test:

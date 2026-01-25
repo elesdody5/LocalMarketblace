@@ -9,6 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:domain/auth/usecase/forgot_password_usecase.dart' as _i986;
 import 'package:domain/auth/usecase/login_usecase.dart' as _i926;
 import 'package:domain/auth/usecase/signup_usecase.dart' as _i472;
 import 'package:domain/auth/usecase/verification_usecase.dart' as _i773;
@@ -19,6 +20,7 @@ import 'package:domain/user_preferences/use_case/update_user_preferences.dart'
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
+import '../auth/forgot_password/forgot_password_controller.dart' as _i98;
 import '../auth/login/login_controller.dart' as _i1020;
 import '../auth/signup/signup_controller.dart' as _i518;
 import '../auth/verification/verification_controller.dart' as _i532;
@@ -49,6 +51,9 @@ _i174.GetIt initPresentationGetIt(
       gh<_i549.GetUserPreferencesUseCase>(),
       gh<_i780.UpdateUserPreferencesUseCase>(),
     ),
+  );
+  gh.factory<_i98.ForgotPasswordController>(
+    () => _i98.ForgotPasswordController(gh<_i986.ForgotPasswordUseCase>()),
   );
   return getIt;
 }

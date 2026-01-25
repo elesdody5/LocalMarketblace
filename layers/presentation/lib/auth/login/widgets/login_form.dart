@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:presentation/auth/login/login_controller.dart';
 import 'package:presentation/auth/login/state/login_actions.dart';
 import 'package:presentation/auth/signup/widgets/password_input_field.dart';
+import 'package:presentation/routes/auth_routes.dart';
 import 'package:presentation/widgets/custom_text_field.dart';
 import 'package:presentation/widgets/primary_button.dart';
 
@@ -77,11 +78,7 @@ class LoginForm extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: TextButton(
               onPressed: () {
-                Get.snackbar(
-                  'Coming Soon',
-                  'Forgot password feature will be available soon',
-                  snackPosition: SnackPosition.BOTTOM,
-                );
+                Get.toNamed(forgotPasswordRouteName);
               },
               style: TextButton.styleFrom(
                 padding: const EdgeInsets.symmetric(

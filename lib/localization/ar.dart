@@ -6,19 +6,22 @@ Map<String, String> arJson = {
 
   // Onboarding Page 1
   'onboarding_discover_title': 'اكتشف العروض المحلية',
-  'onboarding_discover_description': 'اعثر على أفضل المنتجات المعروضة للبيع في منطقتك بسهولة.',
+  'onboarding_discover_description':
+      'اعثر على أفضل المنتجات المعروضة للبيع في منطقتك بسهولة.',
 
   // Onboarding Page 2
   'onboarding_connect_title': 'تواصل مع البائعين',
-  'onboarding_connect_description': 'تحدث مباشرة مع البائعين المحليين وتفاوض على أفضل الأسعار.',
+  'onboarding_connect_description':
+      'تحدث مباشرة مع البائعين المحليين وتفاوض على أفضل الأسعار.',
 
   // Onboarding Page 3
   'onboarding_secure_title': 'محادثة آمنة داخل التطبيق',
-  'onboarding_secure_description': 'تواصل بأمان مع المشترين والبائعين دون مشاركة معلوماتك الشخصية.',
+  'onboarding_secure_description':
+      'تواصل بأمان مع المشترين والبائعين دون مشاركة معلوماتك الشخصية.',
 
   // Welcome Screen
   'app_name': 'السوق المحلي',
-  'welcome_title': 'حول الفوضى إلى نقود',
+  'welcome_title': 'حوِّل أغراضك إلى نقود',
   'welcome_subtitle': 'انضم إلى أكثر سوق محلي أماناً للصفقات اليوم.',
   'welcome_hero_title': 'اشترِ وبع محلياً',
   'welcome_hero_description': 'اعثر على صفقات رائعة في منطقتك دون عناء الشحن.',
@@ -26,7 +29,8 @@ Map<String, String> arJson = {
   'google_button': 'جوجل',
   'facebook_button': 'فيسبوك',
   'already_have_account': 'لدي حساب بالفعل',
-  'terms_privacy': 'بالمتابعة، فإنك توافق على شروط الخدمة وسياسة الخصوصية الخاصة بنا.',
+  'terms_privacy':
+      'بالمتابعة، فإنك توافق على شروط الخدمة وسياسة الخصوصية الخاصة بنا.',
   'terms_of_service': 'شروط الخدمة',
   'privacy_policy': 'سياسة الخصوصية',
 
@@ -53,13 +57,23 @@ Map<String, String> arJson = {
 
   // Login Screen
   'welcome_back_title': 'مرحباً بعودتك!',
-  'welcome_back_subtitle': 'اشترِ وبع محلياً بسهولة. سجّل الدخول لإدارة إعلاناتك.',
+  'welcome_back_subtitle':
+      'اشترِ وبع محلياً بسهولة. سجّل الدخول لإدارة إعلاناتك.',
   'email_or_phone': 'البريد الإلكتروني أو رقم الهاتف',
   'email_or_phone_placeholder': 'أدخل بريدك الإلكتروني أو رقم هاتفك',
   'forgot_password': 'هل نسيت كلمة المرور؟',
   'login_button': 'تسجيل الدخول',
   'dont_have_account': 'ليس لديك حساب؟',
   'sign_up': 'إنشاء حساب',
+
+  // Forgot Password Screen
+  'forgot_password_title': 'هل نسيت كلمة المرور؟',
+  'forgot_password_subtitle': 'لا تقلق! هذا يحدث. الرجاء إدخال رقم هاتفك المسجل. سنرسل لك رمزاً عبر الرسائل القصيرة لإعادة تعيين كلمة المرور الخاصة بك.',
+  'send_reset_code': 'إرسال رمز إعادة التعيين',
+  'need_more_help': 'هل تحتاج إلى مزيد من المساعدة؟',
+  'contact_support': 'اتصل بالدعم',
+  'remember_password': 'هل تتذكر كلمة المرور؟',
+  'verification_code_sent': 'تم إرسال رمز التحقق بنجاح',
 
   // Validation Messages
   'error_full_name_required': 'الرجاء إدخال الاسم الكامل',
@@ -68,15 +82,18 @@ Map<String, String> arJson = {
   'error_phone_required': 'الرجاء إدخال رقم الهاتف',
   'error_country_required': 'الرجاء اختيار الدولة',
   'error_state_required': 'الرجاء اختيار المنطقة/الولاية',
-  'error_password_invalid': 'يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل، وحرف كبير، وحرف صغير، ورقم',
+  'error_password_invalid':
+      'يجب أن تحتوي كلمة المرور على 8 أحرف على الأقل، وحرف كبير، وحرف صغير، ورقم',
   'error_confirm_password_required': 'الرجاء تأكيد كلمة المرور',
   'error_passwords_dont_match': 'كلمات المرور غير متطابقة',
-  'error_email_or_phone_required': 'الرجاء إدخال البريد الإلكتروني أو رقم الهاتف',
+  'error_email_or_phone_required':
+      'الرجاء إدخال البريد الإلكتروني أو رقم الهاتف',
 
   // Verification Screen
   'verification_title': 'أدخل رمز التحقق',
   'verification_subtitle': 'الرجاء إدخال الرمز المكون من 6 أرقام المرسل إلى',
-  'verification_subtitle_email': 'الرجاء إدخال الرمز المكون من 6 أرقام المرسل إل�� بريدك الإلكتروني',
+  'verification_subtitle_email':
+      'الرجاء إدخال الرمز المكون من 6 أرقام المرسل إل�� بريدك الإلكتروني',
   'secure_badge': 'آمن',
   'resend_code': 'إعادة إرسال الرمز',
   'resend_in': 'إعادة الإرسال خلال',

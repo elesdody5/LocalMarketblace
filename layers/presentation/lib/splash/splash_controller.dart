@@ -19,7 +19,7 @@ class SplashController extends GetxController {
 
   void _loadPreferencesAndNavigate() async {
     final savedPreferences = _getUserPreferencesUseCase.call();
-    await Future.delayed(const Duration(seconds: 1)); // Simulate splash delay
+    await Future.delayed(const Duration(milliseconds: 500)); // Simulate splash delay
     userPreferences.value = savedPreferences;
   }
 }

@@ -14,7 +14,7 @@ import 'localization/messages.dart';
 void main() async {
   // Preserve native splash screen
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   // Initialize dependencies
   await GetStorage.init();
@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
       locale: const Locale("en"),
       fallbackLocale: const Locale('en'),
       getPages: appPages,
-      initialRoute: verificationRouteName,
+      initialRoute: splashRouteName,
     );
   }
 }

@@ -20,19 +20,22 @@ class VerificationUseCase {
     // Log the verification attempt
     print('Verifying $type: $contact with code: $code');
 
-    throw Exception('Invalid verification code');
+    // throw Exception('Invalid verification code');
     // Simulate successful verification
     // In real implementation, this would call the backend API
   }
 
+}
+
+@injectable
+class ResendVerificationCodeUseCase {
   /// Resends the verification code to the phone number or email
-  Future<void> resendCode(VerificationType type, String contact) async {
-    // Placeholder: Implement resend code logic here
-    await Future.delayed(const Duration(seconds: 1));
-
+  Future<void> call(VerificationType type, String contact) async {
+    // Placeholder: Implement resend logic here
+    await Future.delayed(const Duration(seconds: 2));
     // Log the resend attempt
-    print('Resending code to $type: $contact');
-
+    print('Resending verification code to $type: $contact');
     // Simulate successful resend
+    // In real implementation, this would call the backend API
   }
 }

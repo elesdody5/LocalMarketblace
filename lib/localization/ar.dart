@@ -75,6 +75,14 @@ Map<String, String> arJson = {
   'remember_password': 'هل تتذكر كلمة المرور؟',
   'verification_code_sent': 'تم إرسال رمز التحقق بنجاح',
 
+  // Reset Password Screen
+  'reset_password_title': 'إعادة تعيين كلمة المرور',
+  'reset_password_subtitle':
+      'يرجى إنشاء كلمة مرور جديدة لحسابك. تأكد من أنها لا تقل عن 8 أحرف.',
+  'new_password': 'كلمة المرور الجديدة',
+  'confirm_new_password': 'تأكيد كلمة المرور الجديدة',
+  'update_password': 'تحديث كلمة المرور',
+
   // Validation Messages
   'error_full_name_required': 'الرجاء إدخال الاسم الكامل',
   'error_email_required': 'الرجاء إدخال البريد الإلكتروني',
@@ -88,6 +96,9 @@ Map<String, String> arJson = {
   'error_passwords_dont_match': 'كلمات المرور غير متطابقة',
   'error_email_or_phone_required':
       'الرجاء إدخال البريد الإلكتروني أو رقم الهاتف',
+  'error_required': 'هذا الحقل مطلوب',
+  'error_password_min_length': 'يجب ألا تقل كلمة المرور عن 8 أحرف',
+  'error_passwords_do_not_match': 'كلمتا المرور غير متطابقتين',
 
   // Verification Screen
   'verification_title': 'أدخل رمز التحقق',

@@ -25,4 +25,13 @@ class AuthRepositoryImpl implements AuthRepository{
     return;
   }
 
+  @override
+  Future<void> resetPassword(String newPassword) async {
+    // TODO: implement resetPassword
+    // Simulate API call
+    await Future.delayed(const Duration(seconds: 2));
+    // For now, just return successfully
+    return;
+  }
+
 }

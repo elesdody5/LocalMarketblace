@@ -73,33 +73,36 @@ class CodeInputForm extends StatelessWidget {
       ),
     );
 
-    return FormBuilder(
-      key: formKey,
-      child: Center(
-        child: Pinput(
-          length: 6,
-          // controller: TextEditingController(text: controller.state.code),
-          defaultPinTheme: defaultPinTheme,
-          focusedPinTheme: focusedPinTheme,
-          submittedPinTheme: submittedPinTheme,
-          autofocus: true,
-          showCursor: true,
-          cursor: Container(
-            width: 2,
-            height: 24,
-            color: primaryColor,
+  return FormBuilder(
+        key: formKey,
+        child: Directionality(
+          textDirection: TextDirection.ltr,
+          child: Center(
+            child: Pinput(
+              length: 6,
+              // controller: TextEditingController(text: controller.state.code),
+              defaultPinTheme: defaultPinTheme,
+              focusedPinTheme: focusedPinTheme,
+              submittedPinTheme: submittedPinTheme,
+              autofocus: true,
+              showCursor: true,
+              cursor: Container(
+                width: 2,
+                height: 24,
+                color: primaryColor,
+              ),
+              keyboardType: TextInputType.number,
+              animationCurve: Curves.easeInOut,
+              animationDuration: const Duration(milliseconds: 200),
+              onChanged: (value) {
+                verificationAction(UpdateCode(value));
+              },
+              onCompleted: (value) {
+                verificationAction(UpdateCode(value));
+              },
+            ),
           ),
-          keyboardType: TextInputType.number,
-          animationCurve: Curves.easeInOut,
-          animationDuration: const Duration(milliseconds: 200),
-          onChanged: (value) {
-            verificationAction(UpdateCode(value));
-          },
-          onCompleted: (value) {
-            verificationAction(UpdateCode(value));
-          },
         ),
-      ),
-    );
+      );
   }
 }

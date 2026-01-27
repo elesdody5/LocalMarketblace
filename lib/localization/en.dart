@@ -70,6 +70,14 @@ Map<String, String> enJson = {
   'remember_password': 'Remember password?',
   'verification_code_sent': 'Verification code sent successfully',
 
+  // Reset Password Screen
+  'reset_password_title': 'Reset Password',
+  'reset_password_subtitle':
+      'Please create a new password for your account. Ensure it is at least 8 characters long.',
+  'new_password': 'New Password',
+  'confirm_new_password': 'Confirm New Password',
+  'update_password': 'Update Password',
+
   // Validation Messages
   'error_full_name_required': 'Please enter your full name',
   'error_email_required': 'Please enter your email',
@@ -81,6 +89,11 @@ Map<String, String> enJson = {
   'error_confirm_password_required': 'Please confirm your password',
   'error_passwords_dont_match': 'Passwords do not match',
   'error_email_or_phone_required': 'Please enter your email or phone number',
+
+  // Generic validation
+  'error_required': 'This field is required',
+  'error_password_min_length': 'Password must be at least 8 characters',
+  'error_passwords_do_not_match': 'Passwords do not match',
 
   // Language Controller
   'language_updated': 'Language Updated',

@@ -13,8 +13,9 @@ import 'state/verification_actions.dart';
 @injectable
 class VerificationController extends GetxController {
   final VerificationUseCase verificationUseCase;
+  final ResendVerificationCodeUseCase resendVerificationCodeUseCase;
 
-  VerificationController(this.verificationUseCase);
+  VerificationController(this.verificationUseCase,this.resendVerificationCodeUseCase);
 
   /// Configurable resend cooldown duration in seconds
   static const int resendCooldownSeconds = 60;
@@ -45,10 +46,12 @@ class VerificationController extends GetxController {
     final args = Get.arguments as Map<String, dynamic>?;
     final phoneNumber = args?[verificationPhoneArg] as String? ?? '';
     final email = args?[verificationEmailArg] as String? ?? '';
+    final purpose = args?[verificationPurposeArg] as String? ?? '';
 
     _state = _state.copyWith(
       phoneNumber: phoneNumber,
       email: email,
+      verificationPurpose: purpose,
       verificationType: VerificationType.phone,
       // Default to phone
       resendCountdown: resendCooldownSeconds,
@@ -161,7 +164,7 @@ class VerificationController extends GetxController {
     if (!_state.isResendEnabled) return;
 
     try {
-      await verificationUseCase.resendCode(
+      await resendVerificationCodeUseCase(
         _state.verificationType,
         _state.currentContact,
       );

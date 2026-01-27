@@ -1,4 +1,3 @@
-
 import 'package:domain/auth/usecase/verification_usecase.dart';
 
 class VerificationState {
@@ -9,6 +8,7 @@ class VerificationState {
   final String email;
   final VerificationType verificationType;
   final int resendCountdown;
+  final String verificationPurpose;
 
   const VerificationState({
     this.code = '',
@@ -18,13 +18,15 @@ class VerificationState {
     this.email = '',
     this.verificationType = VerificationType.phone,
     this.resendCountdown = 60,
+    this.verificationPurpose = '',
   });
 
   /// Returns true if all 6 digits have been entered
   bool get isCodeComplete => code.length == 6;
 
   /// Returns current contact based on verification type
-  String get currentContact => verificationType == VerificationType.phone ? phoneNumber : email;
+  String get currentContact =>
+      verificationType == VerificationType.phone ? phoneNumber : email;
 
   /// Returns masked phone number showing only last 4 digits
   /// Example: "***-***-4567"
@@ -68,7 +70,8 @@ class VerificationState {
   }
 
   /// Returns current masked contact based on verification type
-  String get maskedContact => verificationType == VerificationType.phone ? maskedPhoneNumber : maskedEmail;
+  String get maskedContact =>
+      verificationType == VerificationType.phone ? maskedPhoneNumber : maskedEmail;
 
   VerificationState copyWith({
     String? code,
@@ -78,6 +81,7 @@ class VerificationState {
     String? email,
     VerificationType? verificationType,
     int? resendCountdown,
+    String? verificationPurpose,
   }) {
     return VerificationState(
       code: code ?? this.code,
@@ -87,6 +91,7 @@ class VerificationState {
       email: email ?? this.email,
       verificationType: verificationType ?? this.verificationType,
       resendCountdown: resendCountdown ?? this.resendCountdown,
+      verificationPurpose: verificationPurpose ?? this.verificationPurpose,
     );
   }
 }

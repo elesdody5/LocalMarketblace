@@ -9,7 +9,10 @@ void observeForgotPasswordEvents(Rxn<ForgotPasswordEvent> event) {
       // Navigate to verification screen with phone argument
       Get.toNamed(
         verificationRouteName,
-        arguments: {verificationPhoneArg: currentEvent.phone},
+        arguments: {
+          verificationPhoneArg: currentEvent.phone,
+          verificationPurposeArg: verificationPurposeResetPassword,
+        },
       );
     } else if (currentEvent is ForgotPasswordErrorEvent) {
       ErrorSnackbar.showValidationError(message: currentEvent.message);
